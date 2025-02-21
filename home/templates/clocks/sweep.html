@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+
+    <style>
+        html {
+            /* background: url(../../static/sky.gif ) no-repeat center center fixed; */
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+
+        #clock-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #clock span {
+            position: absolute;
+            transform: rotate(calc(30deg * var(--i)));
+            inset: 12px;
+            text-align: center;
+        }
+
+        #clock span i {
+            transform: rotate(calc(-30deg * var(--j)));
+            display: inline-block;
+        }
+
+        #clock .hand {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        #clock .hand i {
+            position: absolute;
+            background-color: var(--color);
+            width: var(--width);
+            height: var(--height);
+            border-radius: 8px;
+        }
+
+        /* Hide scrollbar */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="./blizzard.html">
+        <div id="clock-container">
+            <div id="clock">
+                <span style="--i: 1; --j: 1"><i><img src="../../static/digits/1.gif"></i></span>
+                <span style="--i: 2; --j: 2"><i><img src="../../static/digits/number-two.gif"></i></span>
+                <span style="--i: 3; --j: 3"><i><img
+                            src="../../static/digits/dancing-number-dancing-letter.gif"></img></i></span>
+                <span style="--i: 4; --j: 4"><i><img src="../../static/digits/kochstrasse-fussball.gif"></i></span>
+                <span style="--i: 5; --j: 5"><i><img src="../../static/digits/2to5-rolling.gif"></i></span>
+                <span style="--i: 8; --j: 8"><i><img src="../../static/digits/number-8-gif.gif"></i></span>
+                <span style=" --i: 10; --j: 10"><i><img src="../../static/digits/tv10-sweden-tv3-sweden.gif"></i></span>
+                <span style="--i: 11; --j: 11"><i><img src="../../static/digits/11.gif"></i></span>
+                <span style="--i: 12; --j: 12"><i><img src="../../static/digits/goura-goura12.gif"></i></span>
+                <span style="--i: 7; --j: 7"><i><img src="../../static/digits/agenturleben-agencylife.gif"></i></span>
+                <span style="--i: 6; --j: 6"><i><img src="../../static/digits/6.gif"></i></span>
+                <span style="--i: 9; --j: 9"><i><img src="../../static/numero-9.gif"></i></span>
+                <div id="hour" class="hand" style="--color: #ff3d58; --height: 76px; --width: 44px"><i></i></div>
+                <div id="minute" class="hand" style="--color: #00a6ff; --height: 86px; --width: 33px"><i></i></div>
+                <div id="second" class="hand" style="--color: #fff700; --height: 500px; --width: 22px"><i></i></div>
+            </div>
+        </div>
+    </a>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const second = now.getSeconds();
+            const minute = now.getMinutes();
+            const hour = now.getHours();
+            document.getElementById('hour').style.transform = `rotate(${30 * hour + minute / 2}deg)`;
+            document.getElementById('minute').style.transform = `rotate(${6 * minute}deg)`;
+            document.getElementById('second').style.transform = `rotate(${6 * second}deg)`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretchy Kittykat</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #kittykat {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="kittykat">kittykat</div>
+
+    <script>
+        function resizeText() {
+            const container = document.getElementById('kittykat');
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+
+            let fontSize = 1;
+            container.style.fontSize = fontSize + 'px';
+
+            while (container.scrollWidth <= containerWidth && container.scrollHeight <= containerHeight) {
+                fontSize++;
+                container.style.fontSize = fontSize + 'px';
+            }
+
+            container.style.fontSize = (fontSize - 1) + 'px';
+        }
+
+        window.addEventListener('resize', resizeText);
+        resizeText();
+    </script>
+</body>
+
+</html>

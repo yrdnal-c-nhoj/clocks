@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.g../static.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
+    <title>Cloud Clock</title>
+    <style>
+        html {
+            background: url('../../static/tumblr_nmkoce4gD31sdfx67o1_500-3341080192-reverse.gif') center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
+        }
+
+        body {
+            background-size: cover;
+        }
+
+        .clockname {
+            font-family: "Oxanium", serif;
+            color: #1206f6;
+            font-size: small;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            /* color: rgb(9, 32, 237); */
+            /* padding: 10px 20px; */
+        }
+
+        .box {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rubik-puddles-regular {
+            font-family: "Rubik Puddles", serif;
+            color: #8393b0;
+            font-size: 2rem;
+            text-shadow:
+                #cdcffe 50px 50px 5px,
+                #dfdbdb 90px 90px 5px,
+                #dfdbdb 15px 18px 5px,
+                #ffffff -80px 80px 4px,
+                #ffffff -60px 60px 4px,
+                #ffffff -20px 20px 4px,
+                #ffffff 80px -80px 4px,
+                #f0f1f4 28px -18px 5px,
+                #f0f1f4 57px -43px 5px,
+                #bbd0ea -21px -17px 4px,
+                #bbd0ea -54px -30px 4px,
+                #c4d4e9 -70px -60px 4px,
+                #0e0e89 1px 1px 1px;
+            z-index: 6;
+        }
+
+        #time-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bigclouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            z-index: -2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #93b6f6;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            const now = new Date();
+
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            const dateString = `-${month}-${day}-${year}`;
+
+            function getStyledText(str) {
+                return str.split('').map(char => {
+                    const randomSize = Math.floor(Math.random() * 300) + 1; // Random size between 40px and 140px
+                    return `<span class="digit" style="font-size: ${randomSize}px;">${char}</span>`;
+                }).join('');
+            }
+
+            // Update the display
+            document.getElementById('time-display').innerHTML = getStyledText(timeString);
+            document.getElementById('date-display').innerHTML = getStyledText(dateString);
+        }
+
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <a href="./curtain.html">
+
+            <div class="rubik-puddles-regular">
+                <div id="time-display">
+                </div>
+        </a>
+    </div>
+
+
+
+    <img class="bigclouds" src="../../static/tumblr_nmkoce4gD31sdfx67o1_500-3341080192.gif">
+    </div>
+
+    <div class="clockname">Cloud Clock</div>
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Analog Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .clock {
+            width: 200px;
+            height: 200px;
+            border: 5px solid black;
+            border-radius: 50%;
+            position: relative;
+            background: white;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            background: black;
+        }
+
+        .hour {
+            width: 6px;
+            height: 50px;
+            transform: translate(-50%, 100%) rotate(0deg);
+        }
+
+        .minute {
+            width: 4px;
+            height: 70px;
+            transform: translate(-50%, 100%) rotate(0deg);
+        }
+
+        .second {
+            width: 2px;
+            height: 80px;
+            background: red;
+            transform: translate(-50%, 100%) rotate(0deg);
+        }
+
+        .center {
+            width: 10px;
+            height: 10px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+        <div class="center"></div>
+    </div>
+    <script>
+        function setStaticTime() {
+            const now = new Date();
+            const hours = now.getHours() % 12;
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const hourDeg = (hours * 30) + (minutes * 0.5);
+            const minuteDeg = (minutes * 6) + (seconds * 0.1);
+            const secondDeg = seconds * 6;
+
+            document.querySelector('.hour').style.transform = `translate(-50%, 100%) rotate(${hourDeg}deg)`;
+            document.querySelector('.minute').style.transform = `translate(-50%, 100%) rotate(${minuteDeg}deg)`;
+            document.querySelector('.second').style.transform = `translate(-50%, 100%) rotate(${secondDeg}deg)`;
+        }
+        window.onload = setStaticTime;
+    </script>
+</body>
+
+</html>

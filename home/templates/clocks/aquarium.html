@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
+    <title>Aquarium Clock</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background: url('../../static/aquarium-ezgif.com-reverse.gif') center center fixed; */
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .full-page-image {
+            position: fixed;
+            width: 100vw;
+            height: 110vh;
+            overflow: hidden;
+            background-image: url('../..static/1622863_33311.gif');
+            translate: -200px 0px;
+            z-index: -3;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+        }
+
+        .fwds {
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -4;
+        }
+
+        .bckwds {
+            opacity: 0.9;
+            filter: alpha(opacity=50);
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -5;
+        }
+
+        .clock {
+            width: 50vw;
+            height: 50vh;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hand {
+            width: 50%;
+            right: 50%;
+            position: absolute;
+            top: 40%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            opacity: 0.8;
+            filter: alpha(opacity=50);
+        }
+
+        .hand.hour-hand {
+            z-index: 3;
+        }
+
+        .hand.min-hand {
+            z-index: 6;
+        }
+
+        .hand.second-hand {
+            z-index: 10;
+
+        }
+
+        .clockname {
+            font-family: "Oxanium", serif;
+            color: #07b3b6;
+            font-size: small;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            /* color: rgb(9, 32, 237); */
+            /* padding: 10px 20px; */
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const secondHand = document.querySelector('.second-hand');
+            const minsHand = document.querySelector('.min-hand');
+            const hourHand = document.querySelector('.hour-hand');
+
+            function setDate() {
+                const now = new Date();
+
+                const seconds = now.getSeconds();
+                const secondsDegrees = ((seconds / 60) * 360) + 90;
+                secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+                const mins = now.getMinutes();
+                const minsDegrees = ((mins / 60) * 360) + ((seconds / 60) * 6) + 90;
+                minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+                const hour = now.getHours();
+                const hourDegrees = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
+                hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+            }
+
+            setInterval(setDate, 1);
+            setDate();
+        });
+    </script>
+</head>
+
+<body>
+
+    <a href="./sweep.html">
+        <div>
+            <img src="../../static/aquarium.gif" class="fwds">
+        </div>
+        <div>
+            <img src="../../static/aquariumreverse.gif" class="bckwds">
+        </div>
+        <div class="clock">
+            <div class="hand hour-hand">
+                <img src="../../static/tumblr_80e4b105f0a85a9f805a3ec54b15c1fb_adae8164_500.gif">
+            </div>
+            <div class="hand min-hand">
+                <img src="../../static/1041329_a3324.gif">
+            </div>
+            <div class="hand second-hand">
+                <img src="../../static/shark.gif">
+            </div>
+        </div>
+    </a>
+    <img src="../../static/1622863_33311.gif" class="full-page-image ">
+    <div class="clockname">Aquarium Clock</div>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blizzard Clock</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(../../static/1937.696_print-scaled.jpg);
+            background-position: center;
+            background-size: 120%;
+        }
+
+        .table-container {
+            position: relative;
+            width: 80vw;
+            height: 80vh;
+        }
+
+        table {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(19, 83, 162);
+            background-image: url(../../static/snow/birds.gif);
+            border-collapse: collapse;
+            border: 2vh solid #c29274;
+            background-repeat: repeat;
+        }
+
+        .clock {
+            position: relative;
+            font-size: 10vw;
+            color: rgb(203, 203, 253);
+            text-shadow: 3px -5px 15px rgba(236, 205, 252, 0.7), -3px -3px 15px rgb(187, 153, 221), 3px 5px 15px #afb9b7, -3px 2px 1px rgba(64, 42, 131, 0.7);
+            font-family: "Amatic SC", serif;
+            text-align: center;
+            overflow: hidden;
+            z-index: 5;
+            transform-origin: center;
+            transform: scale(100%, 200%);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .flake {
+            position: fixed;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+            top: 0;
+            left: 0;
+            width: 200vw;
+            height: 200vh;
+            background: url(../../static/snow/Z3ut.gif);
+            background-size: 100% 100%;
+            /* z-index: 9; */
+        }
+
+        tr {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        td {
+            border: 5px solid #c29274;
+            margin: 0px;
+            padding: 0px;
+            box-shadow: inset 0 0 24px 15px rgba(236, 205, 252, 0.7);
+        }
+
+        .a1,
+        .c3 {
+            height: 17vh;
+            width: 17vw;
+        }
+
+        .a1 {
+            background-image: url(../../static/snow/sg-snow.gif), url(../../static/snow/6595b5_be855e40c2df466b9b66fe3059709f08~mv2-1903038339.gif);
+            background-position: top top;
+            background-repeat: repeat, no-repeat;
+        }
+
+        .a2 {
+            background-image: url(../../static/snow/6595b5_be855e40c2df466b9b66fe3059709f08~mv2-1903038339.gif), url(../../static/snow/flakes.gif);
+            background-position: top left;
+            background-repeat: no-repeat, repeat;
+        }
+
+        .a3 {
+            background-image: url(../../static/snow/snow-gif-7.gif), url(../../static/snow/6595b5_be855e40c2df466b9b66fe3059709f08~mv2-1903038339.gif);
+            background-position: top, top;
+            background-repeat: repeat, no-repeat;
+        }
+
+        .b1 {
+            background-image: url(../../static/snow/snow01.gif);
+            background-position: top;
+            background-repeat: repeat;
+        }
+
+        .b2 {
+            background-image: url(../../static/snow/eref.gif), url(../../static/snow/snow02.gif), url(../../static/snow/sno.gif), url(../../static/snow/snow-gif-7.gif), url(../../static/snow/giphy.gif), url(../../static/snow/sg-snow.gif), url(../../static/snow/flakes.gif);
+            background-position: top right, top;
+            background-repeat: repeat;
+            text-align: center;
+            vertical-align: middle;
+
+        }
+
+        .b3 {
+            background-image: url(../../static/snow/snow02.gif);
+            background-position: top;
+            background-repeat: repeat;
+        }
+
+        .c1 {
+            background-image: url(../../static/snow/eref.gif);
+            background-position: top;
+            background-repeat: repeat;
+        }
+
+        .c2 {
+            background-image: url(../../static/snow/giphy.gif);
+            background-position: top;
+            background-repeat: repeat;
+        }
+
+        .c3 {
+            background-image: url(../../static/snow/sno.gif);
+            background-position: top;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../../../index.html">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <td class="a1">&nbsp;</td>
+                    <td class="a2"></td>
+                    <td class="a3"></td>
+                </tr>
+                <tr>
+                    <td class="b1"></td>
+                    <td class="b2">
+                        <div class="clock" id="clock"></div>
+                    </td>
+                    <td class="b3"></td>
+                </tr>
+                <tr>
+                    <td class="c1"></td>
+                    <td class="c2"></td>
+                    <td class="c3">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </a>
+    <div class="flake"> </div>
+
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const milliseconds = now.getMilliseconds().toString().padStart(3, '0');
+
+            document.getElementById('clock').innerHTML =
+                `${hours}:${minutes}:${seconds}<span class="milliseconds">.${milliseconds}</span>`;
+
+            requestAnimationFrame(updateClock);
+        }
+
+        updateClock();
+    </script>
+</body>
+
+</html>
