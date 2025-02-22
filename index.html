@@ -29,6 +29,9 @@
             text-shadow: #36d919 0.01rem -0.01rem 0.01rem, #e0022a -0.01rem 0.01rem 0.01rem;
             /* font-style: italic; */
             font-family: "Oxanium", serif;
+            position: relative;
+
+            z-index: 10;
         }
 
         .jtitle {
@@ -49,7 +52,7 @@
             position: static;
             top: 1rem;
             right: 4rem;
-            z-index: 5;
+            z-index: 9
         }
 
         a {
@@ -65,48 +68,6 @@
             position: static;
         }
 
-        .full-page-image {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-image: url("./home/static/gears-13950.gif");
-            background-size: 22vh 18vw;
-            background-repeat: repeat;
-            background-position: center;
-            background-repeat: repeat;
-            overflow: hidden;
-            opacity: 0.7;
-            filter: alpha(opacity=50);
-        }
-
-        .full-page-image2 {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-image: url("./home/static/gears-13950.gif");
-            background-size: 21vh 17vw;
-            background-repeat: repeat;
-            background-position: center;
-            background-repeat: repeat;
-            overflow: hidden;
-            opacity: 0.6;
-            filter: alpha(opacity=50);
-        }
-
-        .full-page-image3 {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-image: url("./home/static/gears-13950.gif");
-            background-size: 20vh 16vw;
-            background-repeat: repeat;
-            background-position: center;
-            background-repeat: repeat;
-            overflow: hidden;
-            opacity: 0.6;
-            filter: alpha(opacity=50);
-        }
-
         .copyright {
             color: rgb(202, 197, 186);
             text-shadow: #6e6f6e 0.1rem -0.1rem 0.1rem, #575443 0.01rem -0.01rem 0.01rem;
@@ -117,30 +78,75 @@
             right: 1vw;
             bottom: 1vw;
         }
+
+        .full-page-image {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 22vh 18vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.7;
+            filter: alpha(opacity=50);
+        }
+
+        .full-page-image2 {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 21vh 17vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+        }
+
+        .full-page-image3 {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 20vh 16vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+        }
     </style>
 </head>
 
 <body>
-
-
     <div class="text">
         <div class="jtitle">
             <p>Borrowed Time</p>
             <p>John C. Landry</p>
         </div>
+        <div class="full-page-image"></div>
+        <div class="full-page-image2"></div>
+        <div class="full-page-image3"></div>
         <div class="descr">
             <p>A Series of Clocks Made From Found Images</p>
         </div>
 
         <BR>
         <a href="./home/templates/clocks/cloud.html">spring ahead...</a>
-        <div class="full-page-image"></div>
-        <div class="full-page-image2"></div>
-        <div class="full-page-image3"></div>
 
     </div>
     <div class="copyright">&copy;2025 John C. Landry
     </div>
+
+
 </body>
 
 </html>
