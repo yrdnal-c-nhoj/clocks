@@ -27,23 +27,31 @@
       grid-template-columns: 1fr;
       gap: 0;
       color: rgb(157, 8, 28);
-      text-shadow: #2af106 0.01rem -0.01rem 0.05rem, #e0022a -0.01rem 0.05rem 0.02rem;
+      text-shadow: #2af106 0.01rem -0.01rem 0.05rem, #e0022a -0.01rem 0.05rem 0.05rem;
       font-style: italic;
       font-family: "Oxanium", serif;
       z-index: 9;
     }
 
-
     #div1 {
       grid-area: 1/1/2/2;
+      margin: 1rem;
+      font-size: 1.7rem;
+      line-height: 1.9rem;
+      letter-spacing: 0.15rem;
+      z-index: 8;
     }
 
-    #div3 {
-      grid-area: 3/1/4/2;
-    }
+    #div2 {
+      margin: 1rem;
+      grid-area: 2/1/3/2;
+      text-align: right;
+      font-size: 0.8rem;
+      line-height: 0.99rem;
+      letter-spacing: 0.1rem;
+      right: 4rem;
+      z-index: 9;
 
-    #div4 {
-      grid-area: 4/1/5/2;
     }
 
     a {
@@ -59,6 +67,29 @@
       position: static;
     }
 
+    #div3 {
+      grid-area: 3/1/4/2;
+
+      text-align: center;
+      font-size: 0.9rem;
+
+
+    }
+
+    #div4 {
+      grid-area: 4/1/5/2;
+      color: rgb(202, 197, 186);
+      text-shadow: #6e6f6e 0.1rem -0.1rem 0.1rem, #575443 0.01rem -0.01rem 0.01rem;
+      position: absolute;
+      font-family: "Oxanium", serif;
+      font-size: 0.3rem;
+      line-height: 0.3em;
+      right: 1vw;
+      bottom: 1vw;
+
+    }
+
+
     .full-page-image {
       position: fixed;
       top: 0;
@@ -73,29 +104,57 @@
       opacity: 0.7;
       filter: alpha(opacity=50);
       z-index: -1;
+    }
 
+    .full-page-image2 {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("./home/static/gears-13950.gif");
+      background-size: 21vh 17vw;
+      background-repeat: repeat;
+      background-position: center;
+      overflow: hidden;
+      opacity: 0.6;
+      filter: alpha(opacity=50);
+      z-index: -1;
+    }
+
+    .full-page-image3 {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("./home/static/gears-13950.gif");
+      background-size: 20vh 16vw;
+      background-repeat: repeat;
+      background-position: center;
+      overflow: hidden;
+      opacity: 0.6;
+      filter: alpha(opacity=50);
+      z-index: -1;
     }
   </style>
 </head>
 
 <body>
-
-  <div id="cssportal-grid">
-    <div id="div1">Borrowed Time
-      <br>
-      John C. Landry
-    </div>
-    <div id="div2">A Series of Clocks <br>Made From Found Images</div>
-    <div id="div3"><a href="./home/templates/clocks/cloud.html">spring ahead...</a>
-    </div>
-    <div id="div4">&copy;2025 John C. Landry</div>
-  </div>
-
   <div class="full-page-image"></div>
   <div class="full-page-image2"></div>
   <div class="full-page-image3"></div>
-
-
 </body>
+<div id="cssportal-grid">
+  <div id="div1">Borrowed Time
+    <br>
+    John C. Landry
+  </div>
+  <div id="div2">A Series of Clocks <br>Made From Found Images</div>
+  <div id="div3"><a href="./home/templates/clocks/cloud.html">spring ahead...</a>
+  </div>
+  <div id="div4">&copy;2025 John C. Landry</div>
+</div>
+
 
 </html>
