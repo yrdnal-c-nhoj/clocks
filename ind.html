@@ -5,31 +5,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>clox</title>
-  <meta name="description" content="Simple landind page" />
-  <meta name="keywords" content="" />
-  <meta name="author" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
+  <title>BORROWED-TIME</title>
   <style>
-    .container {
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-color: rgb(178, 177, 177);
+    }
+
+    #cssportal-grid {
       display: grid;
-      gap: 0px;
-      background-color: #2196F3;
-      padding: 0px;
+      grid-template-rows: repeat(4, 1fr);
+      grid-template-columns: 1fr;
+      gap: 0;
+      color: rgb(157, 8, 28);
+      text-shadow: #2af106 0.01rem -0.01rem 0.05rem, #e0022a -0.01rem 0.05rem 0.02rem;
+      font-style: italic;
+      font-family: "Oxanium", serif;
+      z-index: 9;
+    }
+
+
+    #div1 {
+      grid-area: 1/1/2/2;
+    }
+
+    #div3 {
+      grid-area: 3/1/4/2;
+    }
+
+    #div4 {
+      grid-area: 4/1/5/2;
+    }
+
+    a {
+      color: rgb(72, 82, 186);
+      text-shadow: #bdf471 0.01rem -0.01rem 0.01rem;
+      font-style: italic;
+      text-decoration: none;
+      text-align: center;
+      font-size: 0.9rem;
+      top: 11rem;
+      width: 50%;
+      padding: 10px;
+      position: static;
+    }
+
+    .full-page-image {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("./home/static/gears-13950.gif");
+      background-size: 22vh 18vw;
+      background-repeat: repeat;
+      background-position: center;
+      overflow: hidden;
+      opacity: 0.7;
+      filter: alpha(opacity=50);
+      z-index: -1;
+
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-
-    j
-
-
-    dfd
-
+  <div id="cssportal-grid">
+    <div id="div1">Borrowed Time
+      <br>
+      John C. Landry
+    </div>
+    <div id="div2">A Series of Clocks <br>Made From Found Images</div>
+    <div id="div3"><a href="./home/templates/clocks/cloud.html">spring ahead...</a>
+    </div>
+    <div id="div4">&copy;2025 John C. Landry</div>
   </div>
 
+  <div class="full-page-image"></div>
+  <div class="full-page-image2"></div>
+  <div class="full-page-image3"></div>
 
 
 </body>
