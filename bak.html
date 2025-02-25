@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.4/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.4.1/dist/typography.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
+    <title>BORROWED-TIME</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-color: rgb(178, 177, 177);
+        }
+
+        .text {
+            color: rgb(157, 8, 28);
+            text-shadow: #2af106 0.01rem -0.01rem 0.05rem, #e0022a -0.01rem 0.05rem 0.02rem;
+            font-style: italic;
+            font-family: "Oxanium", serif;
+            z-index: 9;
+        }
+
+        .btjl {
+            text-align: left;
+            font-size: 1.7rem;
+            line-height: 1.9rem;
+            letter-spacing: 0.15rem;
+            z-index: 8;
+        }
+
+        .descr {
+            text-align: right;
+            font-size: 0.8rem;
+            line-height: 0.7rem;
+            letter-spacing: 0.1rem;
+            position: static;
+            top: 1rem;
+            right: 4rem;
+            z-index: 9;
+        }
+
+        a {
+            color: rgb(72, 82, 186);
+            text-shadow: #bdf471 0.01rem -0.01rem 0.01rem;
+            font-style: italic;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            top: 11rem;
+            width: 50%;
+            padding: 10px;
+            position: static;
+        }
+
+        .copyright {
+            color: rgb(202, 197, 186);
+            text-shadow: #6e6f6e 0.1rem -0.1rem 0.1rem, #575443 0.01rem -0.01rem 0.01rem;
+            position: absolute;
+            font-family: "Oxanium", serif;
+            font-size: 0.3rem;
+            line-height: 0.3em;
+            right: 1vw;
+            bottom: 1vw;
+        }
+
+        .full-page-image {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 22vh 18vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.7;
+            filter: alpha(opacity=50);
+
+        }
+
+        .full-page-image2 {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 21vh 17vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+        }
+
+        .full-page-image3 {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("./home/static/gears-13950.gif");
+            background-size: 20vh 16vw;
+            background-repeat: repeat;
+            background-position: center;
+            overflow: hidden;
+            opacity: 0.6;
+            filter: alpha(opacity=50);
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="text">
+
+        <div class='text-5xl text-left'>
+            <div class="btjl">
+                Borrowed Time
+                <br>
+                John C. Landry
+            </div>
+        </div>
+        <div class="descr">
+            <p>A Series of Clocks <br>Made From Found Images</p>
+        </div>
+
+        <BR>
+        <a href="./home/templates/clocks/cloud.html">spring ahead...</a>
+    </div>
+    <div class="copyright">&copy;2025 John C. Landry
+    </div>
+
+    <div class="full-page-image"></div>
+    <div class="full-page-image2"></div>
+    <div class="full-page-image3"></div>
+
+
+    <div className="grid grid-cols-5 grid-rows-4 gap-0">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div className="col-start-1 row-start-2">4</div>
+        <div className="col-start-2 row-start-2">5</div>
+        <div className="col-start-3 row-start-2">6</div>
+        <div className="col-start-1 row-start-3">7</div>
+        <div className="col-start-2 row-start-3">8</div>
+        <div className="col-start-3 row-start-3">9</div>
+        <div className="col-start-1 row-start-4">10</div>
+        <div className="col-start-2 row-start-4">11</div>
+        <div className="col-start-3 row-start-4">12</div>
+        <div className="col-start-4 row-start-3">13</div>
+        <div className="col-start-4 row-start-4">14</div>
+        <div className="col-start-4 row-start-2">15</div>
+        <div className="col-start-4 row-start-1">16</div>
+    </div>
+
+</body>
+
+</html>
