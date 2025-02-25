@@ -10,6 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
   <title>BORROWED TIME</title>
   <style>
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -52,7 +59,7 @@
     }
 
     #div3 {
-      /* margin: 0.5rem; */
+
       grid-area: 3/1/1/1/1;
       font-size: 0.8rem;
       text-align: right;
@@ -74,6 +81,7 @@
       text-align: center;
     }
 
+
     #div5 {
       grid-area: 5/1/1/1/1;
       color: rgb(202, 197, 186);
@@ -81,8 +89,14 @@
       font-size: 0.5rem;
       line-height: 0.3em;
       text-align: right;
-      text
+      display: flex;
+      /* Enables flexbox for alignment */
+      align-items: flex-end;
+      /* Aligns content to the bottom */
+      justify-content: flex-end;
+
     }
+
 
 
     .full-page-image {
