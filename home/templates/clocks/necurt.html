@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 98%;
+            max-width: 1200px;
+        }
+
+        .box {
+            flex: 1 0 10%;
+            /* Grow and shrink, but base size around 21% */
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .box {
+                flex: 1 0 66%;
+                /* Base size around 46% on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                flex: 1 0 100%;
+                /* Full width on mobile screens */
+            }
+        }
+
+        .text {
+            color: rgba(219, 19, 19, 0.851);
+            white-space: nowrap;
+            text-align: center;
+            transform-origin: center;
+            z-index: 5;
+            /* background: url("../../static/jdfjjjdjdnskldg.gif") top;
+            background-repeat: repeat; */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* text-shadow: rgb(4, 73, 13) 4px 4px 1px, rgb(157, 249, 100) -4px -4px 1px, rgb(1, 139, 245) 4px -4px 1px, rgb(7, 48, 233) -4px 1px 1px; */
+            text-shadow: rgb(4, 73, 13) 4px 4px 1px, rgb(157, 249, 100) -4px -4px 1px, rgb(1, 139, 245) 4px -4px 1px, rgb(7, 48, 233) -4px 1px 1px;
+        }
+
+        #timedate {
+            font-family: "Rubik Broken Fax", serif;
+            z-index: 8;
+        }
+
+        .overlay1 {
+            background: url("../../static/giphy-2019581644.gif");
+            background-repeat: repeat;
+            background-size: 10vh 10vw;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .overlay {
+            background-image: url("../../static/1606118_395f4-2947943036.gif");
+            background-repeat: repeat;
+            background-size: 10vh 10vw;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .overlay2 {
+            background-image: url("../../static/giphy-1742027846.webp");
+            background-size: 10vh 10vw;
+            position: absolute;
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .clockname {
+            font-family: "Oxanium", serif;
+            color: #6d1818;
+            font-size: small;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9;
+            /* color: rgb(9, 32, 237); */
+            /* padding: 10px 20px; */
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+
+    <div class="clockname">Curtain Clock</div>
+    <div class="text">
+        <div id="timedate">
+            <h3>
+                <a href="./deepspace.html ">
+                    <div class="box"><span id="h">12</span>:</div>
+                    <div class="box"><span id="m">00</span>:</div>
+                    <div class="box"><span id="s">00</span>:</div>
+                    <div class="box"><span id="mi">000</span></div>
+                </a>
+            </h3>
+
+        </div>
+    </div>
+
+    <div class="clockname">Curtain Clock</div>
+    <script>
+        function resizeText() {
+            const text = document.querySelector('.text');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            text.style.fontSize = `${height}px`;
+            text.style.transform = `scale(${width / text.offsetWidth}, 1)`;
+        }
+
+        window.addEventListener('resize', resizeText);
+        resizeText();
+    </script>
+    <script>
+        Number.prototype.pad = function (n) {
+            return this.toString().padStart(n, '0');
+        };
+
+        function updateClock() {
+            var now = new Date();
+            var milli = now.getMilliseconds().toString().padStart(3, '0'),
+                sec = now.getSeconds().pad(2),
+                min = now.getMinutes().pad(2),
+                hou = now.getHours().pad(2);
+
+            var tags = ["h", "m", "s", "mi"],
+                values = [hou, min, sec, milli];
+
+            for (var i = 0; i < tags.length; i++) {
+                document.getElementById(tags[i]).textContent = values[i];
+            }
+        }
+
+        function initClock() {
+            updateClock();
+            setInterval(updateClock, 1);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            initClock();
+        });
+    </script>
+    <div class="overlay"></div>
+    <div class="overlay1"></div>
+    <div class="overlay2"></div>
+
+</body>
+
+</html>
