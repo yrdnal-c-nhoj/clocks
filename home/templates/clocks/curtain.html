@@ -9,35 +9,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&display=swap" rel="stylesheet">
-    <title>Curtain Clock</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw;
             height: 100vh;
-            overflow: hidden;
+        }
+
+        .box {
+            flex: 1 0 30%;
+            /* Grow and shrink, but base size around 21% */
+            /* background-color: #4CAF50; */
+            /* color: white; */
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .box {
+                flex: 1 0 66%;
+                /* Base size around 46% on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                flex: 1 0 100%;
+                /* Full width on mobile screens */
+            }
         }
 
         .text {
-            /* color: rgba(219, 19, 19, 0.851); */
+            color: rgba(205, 25, 25, 0.851);
             white-space: nowrap;
             text-align: center;
             transform-origin: center;
             z-index: 5;
-            background: url("../../static/jdfjjjdjdnskldg.gif") top;
-            background-repeat: repeat;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* text-shadow: rgb(4, 73, 13) 4px 4px 1px, rgb(157, 249, 100) -4px -4px 1px, rgb(1, 139, 245) 4px -4px 1px, rgb(7, 48, 233) -4px 1px 1px; */
-            text-shadow: rgb(4, 73, 13) 4px 4px 1px, rgb(157, 249, 100) -4px -4px 1px, rgb(1, 139, 245) 4px -4px 1px, rgb(7, 48, 233) -4px 1px 1px;
+            text-shadow: rgb(4, 73, 13) 4px 4px 1px, rgb(222, 24, 222) -4px -4px 1px, rgb(1, 139, 245) 4px -4px 1px, rgb(7, 48, 233) -4px 1px 1px;
         }
 
         #timedate {
@@ -78,17 +90,6 @@
 
         .clockname {
             font-family: "Oxanium", serif;
-            font-size: small;
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            /* color: rgb(9, 32, 237); */
-            /* padding: 10px 20px; */
-        }
-
-        .clockname {
-            font-family: "Oxanium", serif;
             color: #6d1818;
             font-size: small;
             position: fixed;
@@ -96,26 +97,34 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 9;
-            /* color: rgb(9, 32, 237); */
-            /* padding: 10px 20px; */
         }
 
         a {
             text-decoration: none;
+            color: rgba(236, 9, 13, 0.851);
         }
+    </style>
     </style>
 </head>
 
 <body>
-    <div class="clockname">Curtain Clock</div>
+
     <div class="text">
-        <div id="timedate"><a href="./deepspace.html ">
-                <span id="h">12</span>:
-                <span id="m">00</span>:
-                <span id="s">00</span>:
-                <span id="mi">000</span></a>
-        </div>
+        <h1 style="font-size: 12vh;">
+            <div id="timedate">
+
+                <a href="./deepspace.html ">
+                    <div class="box">:<span id="h">12</span>:</div>
+                    <div class="box">:<span id="m">00</span>:</div>
+                    <div class="box">:<span id="s">00</span>:</div>
+                    <div class="box">:<span id="mi">000</span></div>
+                </a>
+
+
+            </div>
+        </h1>
     </div>
+
     <div class="clockname">Curtain Clock</div>
     <script>
         function resizeText() {
