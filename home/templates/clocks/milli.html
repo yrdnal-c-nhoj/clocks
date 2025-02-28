@@ -20,13 +20,49 @@
 
         #timedate {
             font-family: "Libre Barcode 128 Text", serif;
-            font-weight: 400;
-            font-style: normal;
-            text-align: left;
-            width: 50%;
-            margin: 40px auto;
-            color: #cf750e;
+            text-align: center;
+            font-size: 12vw;
+            color: #2f1c07;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
         }
+
+        /* General styles for the container */
+        .container {
+            display: flex;
+            /* Enables Flexbox */
+            flex-wrap: wrap;
+            /* Allows wrapping of items if needed */
+            justify-content: space-around;
+            /* Distributes items evenly */
+        }
+
+        /* Horizontal layout for laptops and larger screens */
+        @media screen and (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                /* Aligns items horizontally */
+            }
+        }
+
+        /* Vertical layout for phones and smaller screens */
+        @media screen and (max-width: 767px) {
+            .container {
+                flex-direction: column;
+                /* Aligns items vertically */
+                align-items: center;
+                /* Centers items horizontally */
+            }
+        }
+
+        /* Styling individual items for better visibility */
+        /* .item {
+            background-color: lightblue;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+        } */
     </style>
 
 <body onLoad="initClock()">
@@ -55,13 +91,16 @@
 
     </script>
 
-    <div class="overlay"></div>
-    <div id="timedate">
-        <a id="h">12</a> :
-        <a id="m">00</a>:
-        <a id="s">00</a>:
-        <a id="mi">000</a>
+    <div class="container">
+        <div id="timedate">
+            <div class="item"><a id="h">12</a></div>
+            <div class="item"><a id="m">00</a></div>
+            <div class="item"><a id="s">00</a></div>
+            <div class="item"><a id="mi">000</a></div>
+        </div>
     </div>
+
+
 </body>
 
 
